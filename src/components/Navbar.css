@@ -1,0 +1,56 @@
+/* ===============================
+   FLOATING NAVBAR
+   =============================== */
+
+.navbar-wrapper {
+  position: fixed;
+  top: 24px;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.navbar-center {
+  width: fit-content;
+  margin: 0 auto;
+  pointer-events: auto;
+}
+
+/* ===============================
+   FIX PILLNAV POSITION
+   =============================== */
+
+.navbar-wrapper .pill-nav-container {
+  position: relative !important;
+  left: auto !important;
+  top: auto !important;
+  transform: none !important;
+}
+
+/* ===============================
+   MOBILE ONLY
+   =============================== */
+
+@media (max-width: 768px) {
+  .navbar-wrapper {
+    padding: 0 12px;
+  }
+
+  .navbar-wrapper .pill-nav {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+/* ===============================
+   MOBILE MENU (NO OVERRIDES!)
+   =============================== */
+
+.mobile-menu-button {
+  z-index: 2000;
+}
+
+.mobile-menu-popover {
+  z-index: 2000;
+}

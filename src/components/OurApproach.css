@@ -1,0 +1,97 @@
+.approach {
+  padding: 80px 20px;
+  background: #ffffff;
+}
+
+.approach-title {
+  text-align: center;
+  font-size: 38px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 80px;
+}
+
+/* WRAPPER */
+.approach-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  padding-left: 48px;
+}
+
+/* BASE LINE */
+.approach-wrapper::before {
+  content: "";
+  position: absolute;
+  left: 18px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #e5e7eb;
+}
+
+/* FILL LINE */
+.approach-line-fill {
+  position: absolute;
+  left: 18px;
+  top: 0;
+  width: 2px;
+  background: #111827;
+  transition: height 0.6s ease;
+}
+
+/* STEP */
+.approach-step {
+  display: flex;
+  gap: 28px;
+  margin-bottom: 64px;
+  opacity: 0.4;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.approach-step.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* DOT */
+.approach-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #9ca3af;
+  margin-top: 6px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.approach-step.active .approach-dot {
+  background: #111827;
+  transform: scale(1.2);
+}
+
+/* CONTENT */
+.approach-content h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 6px;
+}
+
+.approach-content p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #4b5563;
+  max-width: 520px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .approach-wrapper {
+    padding-left: 36px;
+  }
+
+  .approach-step {
+    gap: 20px;
+  }
+}

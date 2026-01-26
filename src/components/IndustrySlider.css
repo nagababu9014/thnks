@@ -1,0 +1,48 @@
+.industry-card {
+  height: 260px;
+  border-radius: 24px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  padding: 24px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+.industry-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.55);
+}
+.industry-title {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #141a29;
+
+  background: #ffffff;
+  padding: 10px 18px;
+  border-radius: 999px;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .industry-title {
+    font-size: 14px;
+    padding: 8px 14px;
+  }
+}
+
+/* VERY SMALL SCREENS */
+@media (max-width: 480px) {
+  .industry-title {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+}
