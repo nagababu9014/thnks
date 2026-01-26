@@ -1,9 +1,12 @@
 import { useEffect, useRef } from "react";
 import "./PremiumReviews.css";
+import review1 from "../assets/reviews/review1.png";
+import review2 from "../assets/reviews/review2.png";
+import review3 from "../assets/reviews/review3.png";
 
 const reviews = [
   {
-    image: "/src/assets/reviews/review2.png",
+    image: review2,
     stars: "★★★★★",
     text:
       "Thinkphere understands branding and user experience deeply. Our conversions increased after launch.",
@@ -12,7 +15,7 @@ const reviews = [
     url: "https://www.manojevents.in/",
   },
   {
-    image: "/src/assets/reviews/review3.png",
+    image: review3,
     stars: "★★★★★",
     text:
       "Professional, reliable, and creative. Thinkphere exceeded expectations in every aspect.",
@@ -21,7 +24,7 @@ const reviews = [
     url: "https://bhuvanbiologicals.in/",
   },
   {
-    image: "/src/assets/reviews/review1.png",
+    image: review1,
     stars: "★★★★★",
     text:
       "Beautiful UI and smooth performance. The execution quality was truly impressive.",
@@ -30,6 +33,7 @@ const reviews = [
     url: "https://indrakshitravels.com/",
   },
 ];
+
 
 
 export default function Reviews() {

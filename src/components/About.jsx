@@ -1,5 +1,5 @@
 import "./About.css";
-
+import aboutImage from "../assets/about.png";
 export default function About() {
   return (
     <section className="about" id="about">
@@ -7,10 +7,8 @@ export default function About() {
         
         {/* LEFT IMAGE */}
         <div className="about-image">
-          <img
-            src="/src/assets/about.png"
-            alt="Thinksphere Studio"
-          />
+          <img src={aboutImage} alt="Thinksphere Studio" />
+
         </div>
 
         {/* RIGHT CONTENT */}

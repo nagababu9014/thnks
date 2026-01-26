@@ -1,38 +1,46 @@
 import { useEffect, useRef } from "react";
 import "./Services.css";
 
+import web from "../assets/services/web.png";
+import app from "../assets/services/app.png";
+import erp from "../assets/services/erp.png";
+import saas from "../assets/services/saas.png";
+import software from "../assets/services/software.png";
+import brand from "../assets/services/brand.png";
+
 const services = [
   {
     title: "Web Development",
     desc: "Modern, scalable websites engineered for performance and long-term growth.",
-    image: "/src/assets/services/web.png",
+    image: web,
   },
   {
     title: "App Development",
     desc: "High-quality mobile applications built for seamless user experiences.",
-    image: "/src/assets/services/app.png",
+    image: app,
   },
   {
     title: "ERP Solutions",
     desc: "Custom ERP platforms designed to simplify operations and improve efficiency.",
-    image: "/src/assets/services/erp.png",
+    image: erp,
   },
   {
     title: "SaaS Product Development",
     desc: "End-to-end SaaS solutions from idea to launch and scale.",
-    image: "/src/assets/services/saas.png",
+    image: saas,
   },
   {
     title: "Software Development",
     desc: "Reliable, secure software crafted to solve real business challenges.",
-    image: "/src/assets/services/software.png",
+    image: software,
   },
   {
     title: "Brand Designing",
     desc: "Distinct brand identities crafted through strategy, design systems, and visual clarity.",
-    image: "/src/assets/services/brand.png",
+    image: brand,
   },
 ];
+
 
 export default function Services() {
   const cardsRef = useRef([]);
