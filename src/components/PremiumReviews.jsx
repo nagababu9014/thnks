@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./PremiumReviews.css";
 import review1 from "../assets/reviews/review1.png";
 import review2 from "../assets/reviews/review2.png";
@@ -34,54 +34,72 @@ const reviews = [
   },
 ];
 
-
-
 export default function Reviews() {
-  const trackRef = useRef(null);
+  const sliderRef = useRef(null);
+  const [index, setIndex] = useState(0);
 
+  // auto scroll
   useEffect(() => {
-    const track = trackRef.current;
-    let playing = true;
-
     const interval = setInterval(() => {
-      track.style.animationPlayState = playing ? "paused" : "running";
-      playing = !playing;
-    }, 3000);
+      const next = (index + 1) % reviews.length;
+      setIndex(next);
+
+      sliderRef.current.scrollTo({
+        left: next * window.innerWidth,
+        behavior: "smooth",
+      });
+    }, 4000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [index]);
+
+  const goTo = (i) => {
+    setIndex(i);
+    sliderRef.current.scrollTo({
+      left: i * window.innerWidth,
+      behavior: "smooth",
+    });
+  };
 
   return (
-    <section className="reviews" id= "reviews">
+    <section className="reviews" id="reviews">
       <h2 className="reviews-title">What Our Clients Say</h2>
 
-      <div className="reviews-slider">
-        <div className="reviews-track" ref={trackRef}>
-          {[...reviews, ...reviews].map((item, index) => (
-           <div className="review-card" key={index}>
-  <div className="review-image">
-    <img src={item.image} alt={item.name} />
-  </div>
+      <div className="reviews-slider" ref={sliderRef}>
+        {reviews.map((item, i) => (
+          <div className="review-slide" key={i}>
+            <div className="review-card">
+              <div className="review-image">
+                <img src={item.image} alt={item.name} />
+              </div>
 
-  <div className="stars">{item.stars}</div>
-  <p className="review-text">“{item.text}”</p>
-  <h4>{item.name}</h4>
-  <span>{item.role}</span>
+              <div className="stars">{item.stars}</div>
+              <p className="review-text">“{item.text}”</p>
+              <h4>{item.name}</h4>
+              <span>{item.role}</span>
 
-  <a
-    href={item.url}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="visit-btn"
-  >
-    Visit Now
-  </a>
-</div>
+              <a
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="visit-btn"
+              >
+                Visit Now
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
 
-          ))}
-        </div>
+      <div className="review-dots">
+        {reviews.map((_, i) => (
+          <span
+            key={i}
+            className={i === index ? "dot active" : "dot"}
+            onClick={() => goTo(i)}
+          />
+        ))}
       </div>
     </section>
   );
 }
-
