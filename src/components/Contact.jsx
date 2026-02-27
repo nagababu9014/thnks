@@ -45,7 +45,7 @@ Message: ${form.message}`
             <a href="mailto:ballanagababu29@gmail.com" aria-label="Email">
               <FiMail />
             </a>
-            <a href="https://www.instagram.com/thinksphere.ai?igsh=YjNlY3ZrMGxzbW40" target="_blank" aria-label="Instagram">
+            <a href="https://www.instagram.com/flashcoders_?igsh=aGQxZWJ3OG1taTR5" target="_blank" aria-label="Instagram">
               <FaInstagram />
             </a>
             <a href="https://wa.me/919014884200" target="_blank" aria-label="WhatsApp">
