@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import "./PremiumReviews.css";
 import review1 from "../assets/reviews/review1.png";
 import review2 from "../assets/reviews/review2.png";
-import review3 from "../assets/reviews/review3.png";
+import review3 from "../assets/marvelousMart.png";
 
 const reviews = [
   {
@@ -19,9 +19,9 @@ const reviews = [
     stars: "★★★★★",
     text:
       "Professional, reliable, and creative. Thinkphere exceeded expectations in every aspect.",
-    name: "Bhuvan Cheerala",
-    role: "COO Bhuvan Biologicals",
-    url: "https://bhuvanbiologicals.in/",
+    name: "Karthik",
+    role: "MD Marvelous Mart",
+    url: "https://www.marvelousmart.com/",
   },
   {
     image: review1,
