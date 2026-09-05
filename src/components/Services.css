@@ -1,82 +1,154 @@
-.services {
-  padding: 40px 20px;
-  background: #ffffff;
-}
+/* ===============================
+   SERVICES & CAPABILITIES SECTION
+   =============================== */
 
-.services-title {
-  text-align: center;
-  font-size: 40px;
-  font-weight: 600;
-  color: #111827;
-  margin-bottom: 70px;
+.services-section {
+  padding: 100px 0;
+  background-color: var(--bg-canvas);
+  border-top: 1px solid var(--border-subtle);
+  position: relative;
 }
 
 .services-grid {
-  max-width: 1200px;
-  margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 36px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
 }
 
-/* CARD */
+/* Service Card */
 .service-card {
-  background: #ffffff;
-  border-radius: 26px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .service-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+  border-color: var(--border-medium);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
 }
 
-/* IMAGE */
-.service-image {
-  height: 200px;
+/* Image Container */
+.service-image-container {
+  position: relative;
+  height: 180px;
   overflow: hidden;
+  background-color: #0b0d13;
 }
 
-.service-image img {
+.service-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  display: block;
+  transition: transform 0.4s ease;
 }
 
-.service-card:hover img {
-  transform: scale(1.06);
+.service-card:hover .service-img {
+  transform: scale(1.05);
 }
 
-/* CONTENT */
+.service-image-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(9, 10, 15, 0) 30%, rgba(16, 18, 26, 0.95) 100%);
+  pointer-events: none;
+}
+
+/* Content */
 .service-content {
-  padding: 28px 30px 34px;
-  text-align: left;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
-.service-content h3 {
-  font-size: 20px;
-  font-weight: 600;
-  color: #111827;
-  margin-bottom: 10px;
+.service-card-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
 }
 
-.service-content p {
-  font-size: 15px;
+.service-card-desc {
+  font-size: 13.5px;
   line-height: 1.6;
-  color: #4b5563;
-}
-/* INITIAL STATE */
-.service-card {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  color: var(--text-secondary);
+  margin-bottom: 18px;
 }
 
-/* REVEALED */
-.service-card.reveal {
-  opacity: 1;
-  transform: translateY(0);
+/* Capabilities list */
+.service-capabilities-block {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-subtle);
+  margin-bottom: 16px;
 }
+
+.capabilities-heading {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.capabilities-items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.capabilities-items li {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font-size: 12.5px;
+  color: #cbd5e1;
+}
+
+.cap-bullet {
+  color: var(--accent-light);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+/* Tech Tags */
+.service-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-top: 10px;
+}
+
+.tech-tag {
+  font-size: 11px;
+  font-family: ui-monospace, monospace;
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+

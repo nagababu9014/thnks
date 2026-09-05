@@ -1,32 +1,36 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Industries from "./components/Industries";
-import About from "./components/About";
-import PremiumReviews from "./components/PremiumReviews";
+import CaseStudies from "./components/CaseStudies";
 import Services from "./components/Services";
 import OurApproach from "./components/OurApproach";
+import Industries from "./components/Industries";
+import About from "./components/About";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
+
 function App() {
   return (
     <>
       <Navbar />
 
       {/* MAIN CONTENT WRAPPER */}
-      <main className="page-wrapper">
+      <main id="main-content">
         <Hero />
-        <Industries />
+        <CaseStudies />
         <Services />
-        <PremiumReviews />
-        <About />
         <OurApproach />
+        <Industries />
+        <About />
         <Contact />
-        <Footer />
-        <WhatsAppButton />
       </main>
+
+      {/* SEMANTIC FOOTER OUTSIDE MAIN */}
+      <Footer />
+      <WhatsAppButton />
     </>
   );
 }
 
 export default App;
+

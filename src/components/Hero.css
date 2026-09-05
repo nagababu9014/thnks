@@ -1,0 +1,542 @@
+/* ===============================
+   ENTERPRISE HERO & RESTYLED BENTO
+   =============================== */
+
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  padding: 140px 0 100px;
+  background-color: var(--bg-canvas);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+/* Subtle ambient backdrop light */
+.hero-ambient-glow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 500px;
+  background: radial-gradient(circle at 50% 20%, rgba(99, 102, 241, 0.12) 0%, rgba(9, 10, 15, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+/* Hero Typography & CTA */
+.hero-header-content {
+  max-width: 860px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.hero-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--accent-light);
+}
+
+.hero-headline {
+  font-size: clamp(32px, 5vw, 56px);
+  line-height: 1.15;
+  margin-bottom: 22px;
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.hero-subheadline {
+  font-size: clamp(16px, 2vw, 18px);
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 740px;
+  margin: 0 auto 34px;
+}
+
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero-primary-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: 999px;
+  background-color: #ffffff;
+  color: #090a0f;
+  font-size: 14.5px;
+  font-weight: 600;
+  border: 1px solid #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hero-primary-btn:hover {
+  background-color: #f1f5f9;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.15);
+}
+
+.hero-primary-btn .btn-arrow {
+  transition: transform 0.2s ease;
+}
+
+.hero-primary-btn:hover .btn-arrow {
+  transform: translateX(3px);
+}
+
+.hero-secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 26px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-medium);
+  color: #ffffff;
+  font-size: 14.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hero-secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+/* ===============================
+   RESTYLED BENTO SHOWCASE
+   =============================== */
+
+.hero-bento-wrapper {
+  display: grid;
+  grid-template-columns: 1.65fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.bento-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: border-color 0.25s ease;
+}
+
+.bento-card:hover {
+  border-color: var(--border-medium);
+}
+
+/* Main Console Window */
+.bento-main-console {
+  display: flex;
+  flex-direction: column;
+}
+
+.console-window-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background-color: #0c0e14;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.window-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-close { background-color: #ef4444; opacity: 0.8; }
+.dot-minimize { background-color: #f59e0b; opacity: 0.8; }
+.dot-expand { background-color: #10b981; opacity: 0.8; }
+
+.window-address-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: rgba(255, 255, 255, 0.04);
+  padding: 4px 14px;
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.secure-icon {
+  font-size: 10px;
+}
+
+.window-status-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #10b981;
+  font-weight: 500;
+}
+
+.status-live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #10b981;
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* Console Window Body */
+.console-window-body {
+  display: flex;
+  flex: 1;
+  min-height: 280px;
+}
+
+.console-sidebar {
+  width: 130px;
+  padding: 18px 12px;
+  background-color: #0d0f15;
+  border-right: 1px solid var(--border-subtle);
+}
+
+.sidebar-brand {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+  padding-left: 8px;
+}
+
+.sidebar-nav {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebar-nav li {
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  padding: 6px 8px;
+  border-radius: 6px;
+  cursor: default;
+}
+
+.sidebar-nav li.active {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.06);
+  font-weight: 500;
+}
+
+/* Console Main View */
+.console-main-view {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #10121a;
+}
+
+.console-metrics-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.metric-box {
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.metric-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.metric-val {
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.text-emerald {
+  color: #10b981;
+}
+
+.metric-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* Pipeline Architecture View */
+.console-pipeline-card {
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.pipeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pipeline-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.pipeline-tag {
+  font-size: 11px;
+  color: var(--accent-light);
+  background: var(--accent-subtle);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.pipeline-nodes {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.node-box {
+  flex: 1;
+  background-color: #0c0e14;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.active-node {
+  border-color: rgba(99, 102, 241, 0.4);
+  background-color: rgba(99, 102, 241, 0.05);
+}
+
+.node-type {
+  font-size: 10px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.node-name {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.node-connector {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+/* Side Bento Cards */
+.bento-side-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Capabilities Card */
+.bento-capabilities-card {
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bento-card-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: #ffffff;
+}
+
+.capabilities-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.capabilities-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+}
+
+.check-icon {
+  color: var(--accent-light);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+/* Deployment Status Card */
+.bento-deployment-card {
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+}
+
+.deployment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.deployment-label {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.deployment-badge {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-family: ui-monospace, monospace;
+}
+
+.deployment-code-row {
+  background-color: #0a0b10;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.code-text {
+  font-size: 12px;
+  color: #e2e8f0;
+}
+
+.deployment-progress-bar {
+  width: 100%;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.06);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.deployment-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #6366f1, #10b981);
+}
+
+.deployment-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .hero-bento-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .console-sidebar {
+    display: none;
+  }
+
+  .console-metrics-row {
+    grid-template-columns: 1fr;
+  }
+
+  .pipeline-nodes {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .node-connector {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-section {
+    padding: 110px 0 60px;
+  }
+
+  .hero-header-content {
+    margin-bottom: 40px;
+  }
+
+  .console-window-body {
+    min-height: auto;
+  }
+
+  .console-main-view {
+    padding: 14px;
+  }
+}
+

@@ -1,207 +1,193 @@
-import { useEffect, useState } from "react";
-import Ballpit from "./Ballpit/Ballpit";
+import "./Hero.css";
 
-function Hero() {
-  const [ballCount, setBallCount] = useState(60);
-  const [isMobile, setIsMobile] = useState(false);
-  const [isSmallMobile, setIsSmallMobile] = useState(false);
+export default function Hero() {
   const scrollTo = (id) => {
-  document.getElementById(id)?.scrollIntoView({
-    behavior: "smooth",
-    block: "start",
-  });
-};
-
-
-  useEffect(() => {
-    let timeout;
-    const updateSettings = () => {
-      clearTimeout(timeout);
-      timeout = setTimeout(() => {
-        const width = window.innerWidth;
-
-        setIsMobile(width < 640);
-        setIsSmallMobile(width < 420);
-
-        if (width < 360) {
-          setBallCount(12);
-        } else if (width < 480) {
-          setBallCount(16);
-        } else if (width < 768) {
-          setBallCount(26);
-        } else if (width < 1024) {
-          setBallCount(45);
-        } else {
-          setBallCount(60);
-        }
-      }, 150);
-    };
-
-    updateSettings();
-    window.addEventListener("resize", updateSettings);
-    return () => window.removeEventListener("resize", updateSettings);
-  }, []);
+    const el = document.getElementById(id);
+    if (el) {
+      const navOffset = 80;
+      const targetPosition = el.getBoundingClientRect().top + window.scrollY - navOffset;
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
 
   return (
-    <section
-      id="home"
-      style={{
-        position: "relative",
-        height: "100vh",
-        overflow: "hidden",
-        background: "#05010d",
-        WebkitFontSmoothing: "antialiased",
-        MozOsxFontSmoothing: "grayscale",
-// 🔥 KEY LINE
-      }}
-    >
-      {/* Ballpit background */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          zIndex: 0,
-          pointerEvents: "none",
-        }}
-      >
-        <Ballpit
-          count={ballCount}
-          // Motion
-          gravity={0.01}
-          friction={0.9975}
-          wallBounce={0.95}
-          maxVelocity={0.15}
-          // Size
-          minSize={isSmallMobile ? 0.25 : isMobile ? 0.35 : 0.5}
-          maxSize={isSmallMobile ? 0.7 : isMobile ? 0.95 : 1}
-          // Lighting
-          ambientColor={0xffffff}
-          ambientIntensity={0.9}   // slightly reduced for clarity
-          lightIntensity={150}     // less bloom
-          // Colors
-          colors={[
-            "#5A5FFF",
-            "#6F6CFF",
-            "#8B89FF",
-            "#FFFFFF",
-            "#E1E1E6",
-            "#B9BAC5",
-          ]}
-          // Canvas
-          background="#05010d"
-          followCursor={false}
-          size0={1}
-          devicePixelRatio={window.devicePixelRatio} // ensures HD scaling
-        />
-      </div>
+    <section id="home" className="hero-section">
+      {/* Subtle ambient gradient mesh */}
+      <div className="hero-ambient-glow" aria-hidden="true" />
 
-      {/* Vignette overlay */}
-{/* Vignette overlay */}
-<div
-  style={{
-    position: "absolute",
-    inset: 0,
-    zIndex: 1,
-    pointerEvents: "none", // 🔥 THIS IS THE KEY
-    background: isMobile
-      ? `
-        radial-gradient(
-          circle at center,
-          rgba(0,0,0,0.75) 0%,
-          rgba(0,0,0,0.65) 35%,
-          rgba(0,0,0,0.85) 100%
-        )
-      `
-      : `
-        radial-gradient(
-          circle at center,
-          rgba(0,0,0,0.25) 0%,
-          rgba(0,0,0,0.55) 45%,
-          rgba(0,0,0,0.85) 100%
-        )
-      `,
-  }}
-/>
+      <div className="section-container hero-container">
+        {/* Hero Header Content */}
+        <div className="hero-header-content">
+          <div className="hero-pill-badge">
+            <span className="badge-dot" aria-hidden="true" />
+            <span>Digital Product & Software Engineering Studio</span>
+          </div>
 
+          <h1 className="hero-headline">
+            We engineer custom software, web platforms, and scalable digital products.
+          </h1>
 
-      {/* Hero content */}
-<div
-  style={{
-    position: "relative",
-    zIndex: 2,
-    pointerEvents: "auto", // 🔥 RE-ENABLE
-    height: "100%",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    textAlign: "center",
-    color: "#ffffff",
-    padding: "0 20px",
-  }}
->
+          <p className="hero-subheadline">
+            From modern web applications and multi-tenant SaaS platforms to custom ERPs and mobile experiences, 
+            Thinksphere designs and delivers high-performance digital systems built to solve real operational challenges.
+          </p>
 
+          <div className="hero-cta-group">
+            <button
+              type="button"
+              className="hero-primary-btn"
+              onClick={() => scrollTo("contact")}
+            >
+              Start a Project
+              <span className="btn-arrow" aria-hidden="true">→</span>
+            </button>
 
+            <button
+              type="button"
+              className="hero-secondary-btn"
+              onClick={() => scrollTo("work")}
+            >
+              View Featured Work ↓
+            </button>
+          </div>
+        </div>
 
-        <h1
-          style={{
-            fontSize: "52px",
-            fontWeight: 700,
-            letterSpacing: "-0.02em",
-            lineHeight: 1.1,
-          }}
-        >
-          ThinkSphere
-        </h1>
+        {/* The Restrained Product UI Bento */}
+        <div className="hero-bento-wrapper" aria-label="Software interface preview">
+          {/* Main Console Window */}
+          <div className="bento-card bento-main-console">
+            {/* Window Header */}
+            <div className="console-window-bar">
+              <div className="window-dots" aria-hidden="true">
+                <span className="dot dot-close" />
+                <span className="dot dot-minimize" />
+                <span className="dot dot-expand" />
+              </div>
+              <div className="window-address-bar">
+                <span className="secure-icon" aria-hidden="true">🔒</span>
+                <span>app.thinksphere.in/overview</span>
+              </div>
+              <div className="window-status-pill">
+                <span className="status-live-dot" />
+                <span>Production</span>
+              </div>
+            </div>
 
-        <p
-          style={{
-            maxWidth: "620px",
-            fontSize: "18px",
-            opacity: 0.9,
-            marginTop: "14px",
-          }}
-        >
-          We build modern software and web solutions that power
-          next-generation businesses.
-        </p>
+            {/* Console Body */}
+            <div className="console-window-body">
+              {/* Left Mini Sidebar */}
+              <aside className="console-sidebar" aria-hidden="true">
+                <div className="sidebar-brand">TS Platform</div>
+                <ul className="sidebar-nav">
+                  <li className="active">Overview</li>
+                  <li>Applications</li>
+                  <li>Architecture</li>
+                  <li>Databases</li>
+                  <li>Analytics</li>
+                </ul>
+              </aside>
 
-        <div style={{ display: "flex", gap: "14px", marginTop: "28px" }}>
-<button
-  onClick={() => scrollTo("contact")}
-  style={{
-    padding: "12px 30px",
-    borderRadius: "999px",
-    border: "none",
-    fontSize: "15px",
-    fontWeight: 500,
-    background: "#ffffff",
-    color: "#000",
-    cursor: "pointer",
-  }}
->
-  Get Started
-</button>
+              {/* Main Dashboard Canvas */}
+              <div className="console-main-view">
+                <div className="console-metrics-row">
+                  <div className="metric-box">
+                    <span className="metric-label">System State</span>
+                    <span className="metric-val text-emerald">Healthy</span>
+                    <span className="metric-sub">All microservices active</span>
+                  </div>
+                  <div className="metric-box">
+                    <span className="metric-label">Target Architecture</span>
+                    <span className="metric-val">Web & Cloud SaaS</span>
+                    <span className="metric-sub">Modular & scalable</span>
+                  </div>
+                  <div className="metric-box">
+                    <span className="metric-label">Engineering Focus</span>
+                    <span className="metric-val">Performance</span>
+                    <span className="metric-sub">Clean code & low latency</span>
+                  </div>
+                </div>
 
-<button
-  onClick={() => scrollTo("services")}
-  style={{
-    padding: "12px 30px",
-    borderRadius: "999px",
-    border: "1px solid rgba(255,255,255,0.25)",
-    fontSize: "15px",
-    background: "transparent",
-    color: "#ffffff",
-    cursor: "pointer",
-  }}
->
-  Learn More
-</button>
+                {/* Architecture Visual Pipeline */}
+                <div className="console-pipeline-card">
+                  <div className="pipeline-header">
+                    <span className="pipeline-title">System Architecture Flow</span>
+                    <span className="pipeline-tag">Full-Stack Production</span>
+                  </div>
+                  <div className="pipeline-nodes">
+                    <div className="node-box">
+                      <span className="node-type">Frontend</span>
+                      <span className="node-name">Web & Mobile Clients</span>
+                    </div>
+                    <span className="node-connector" aria-hidden="true">→</span>
+                    <div className="node-box active-node">
+                      <span className="node-type">Gateway</span>
+                      <span className="node-name">REST / GraphQL API</span>
+                    </div>
+                    <span className="node-connector" aria-hidden="true">→</span>
+                    <div className="node-box">
+                      <span className="node-type">Logic</span>
+                      <span className="node-name">ERP & SaaS Core</span>
+                    </div>
+                    <span className="node-connector" aria-hidden="true">→</span>
+                    <div className="node-box">
+                      <span className="node-type">Storage</span>
+                      <span className="node-name">Relational DB & Cache</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
+          {/* Secondary Bento Grid Cards */}
+          <div className="bento-side-grid">
+            {/* Card 1: Capabilities Checklist */}
+            <div className="bento-card bento-capabilities-card">
+              <h3 className="bento-card-title">Engineering Capabilities</h3>
+              <ul className="capabilities-list">
+                <li>
+                  <span className="check-icon">✓</span>
+                  <span>Modern, high-performance web applications</span>
+                </li>
+                <li>
+                  <span className="check-icon">✓</span>
+                  <span>Custom ERP & operational workflow engines</span>
+                </li>
+                <li>
+                  <span className="check-icon">✓</span>
+                  <span>End-to-end multi-tenant SaaS platforms</span>
+                </li>
+                <li>
+                  <span className="check-icon">✓</span>
+                  <span>Responsive, cross-platform mobile apps</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Card 2: Deployment Status Card */}
+            <div className="bento-card bento-deployment-card">
+              <div className="deployment-header">
+                <span className="deployment-label">CI / CD Deployment Pipeline</span>
+                <span className="deployment-badge">Release v2.4</span>
+              </div>
+              <div className="deployment-code-row">
+                <code className="code-text">$ vite build && automated-tests --passed</code>
+              </div>
+              <div className="deployment-progress-bar">
+                <div className="deployment-progress-fill" style={{ width: "100%" }} />
+              </div>
+              <div className="deployment-footer">
+                <span>Status: Ready for production</span>
+                <span className="text-emerald">Verified</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
-export default Hero;
